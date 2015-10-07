@@ -13,10 +13,10 @@ class ResumableFile(object):
         """Checks if the requested chunk exists."""
         name = "%s%s%s" % (self.filename,
                            self.chunk_suffix,
-                           self.kwargs.get('resumableChunkNumber').zfill(4))
+                           self.kwargs.get('flowChunkNumber').zfill(4))
         if not self.storage.exists(name):
             return False
-        chunk_size = int(self.kwargs.get('resumableCurrentChunkSize'))
+        chunk_size = int(self.kwargs.get('flowCurrentChunkSize'))
         return self.storage.size(name) == chunk_size
 
     def chunk_names(self):
@@ -39,7 +39,7 @@ class ResumableFile(object):
     @property
     def filename(self):
         """Gets the filename."""
-        filename = self.kwargs.get('resumableFilename')
+        filename = self.kwargs.get('flowFilename')
         if '/' in filename:
             raise Exception('Invalid filename')
         return "%s_%s" % (
@@ -52,14 +52,14 @@ class ResumableFile(object):
         """Checks if all chunks are allready stored."""
         if self.storage.exists(self.filename):
             return True
-        return int(self.kwargs.get('resumableTotalSize')) == self.size
+        return int(self.kwargs.get('flowTotalSize')) == self.size
 
     def process_chunk(self, file):
         if not self.chunk_exists:
             self.storage.save('%s%s%s' % (
                 self.filename,
                 self.chunk_suffix,
-                self.kwargs.get('resumableChunkNumber').zfill(4)
+                self.kwargs.get('flowChunkNumber').zfill(4)
             ), file)
 
     @property
