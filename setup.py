@@ -4,13 +4,13 @@ from setuptools import find_packages
 
 
 setup(
-    name='django-resumable',
-    version='0.1',
-    author=u'jean-philippe serafin',
-    author_email='serafinjp@gmail.com',
+    name='django-flow',
+    version='0.1.1',
+    author=u'Madhukar Mishra',
+    author_email='madhukar93@gmail.com',
     packages=find_packages(),
     include_package_data=True,
-    url='https://github.com/jeanphix/django-resumable',
+    url='https://github.com/madhukar93/django-flow/',
     license='MIT licence',
     description='Django resumable uploads',
     long_description=open('README.rst').read(),
