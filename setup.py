@@ -6,8 +6,8 @@ from setuptools import find_packages
 setup(
     name='django-flow',
     version='0.1.1',
-    author=u'Madhukar Mishra',
-    author_email='madhukar93@gmail.com',
+    author=u'Madhukar Mishra, serafinjp@gmail.com(original author)',
+    author_email='madhukar93@gmail.com, jean-philippe serafin',
     packages=find_packages(),
     include_package_data=True,
     url='https://github.com/madhukar93/django-flow/',
